@@ -37,6 +37,7 @@ The **Add-AzLoadBalancerOutboundRuleConfig** cmdlet adds an outbound rule config
 ```powershell
 $slb = Get-AzLoadBalancer -ResourceGroupName "MyResourceGroup" -Name "MyLoadBalancer"
 $slb | Add-AzLoadBalancerOutboundRuleConfig -Name "NewRule" -Protocol "Tcp" -FrontendIPConfiguration $slb.FrontendIpConfigurations[0] -BackendAddressPool $slb.BackendAddressPools[0]
+Set-AzLoadBalancer -LoadBalancer $slb
 ```
 
 The first command gets the load balancer named MyLoadBalancer, and then stores it in the variable $slb.
